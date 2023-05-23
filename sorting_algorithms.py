@@ -5,22 +5,6 @@ class SortingAlgorithms:
 
     # Bubble Sort Implementation
     @staticmethod
-    # def bubble_sort(dataset, draw_data, speed, stop_flag):
-    #     # comparisons counter
-    #     comparisons = 0
-    #     for i in range(len(dataset)):
-    #         for j in range(len(dataset) - i - 1):
-    #             if stop_flag():
-    #                 return
-    #             comparisons += 1
-    #             if dataset[j] > dataset[j + 1]:
-    #                 # swap elements
-    #                 dataset[j], dataset[j + 1] = dataset[j + 1], dataset[j]
-    #                 draw_data(dataset, ['#019267' if c == j or c == j + 1 else 'red' for c in range(len(dataset))])
-    #                 time.sleep(speed)
-    #
-    #     draw_data(dataset, ['#019267' for i in range(len(dataset))])
-    #     return comparisons
     def bubble_sort(dataset, draw_data, speed, stop_flag):
         # comparisons counter
         comparisons = 0

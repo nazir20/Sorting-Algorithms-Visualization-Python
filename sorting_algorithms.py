@@ -3,11 +3,19 @@ import time
 
 class SortingAlgorithms:
 
+    def __init__(self):
+        self.comparisons_count = 0
+
+    def set_comparisons_count(self, value):
+        self.comparisons_count = value
+
+    def get_comparisons_count(self):
+        return self.comparisons_count
+
     # Bubble Sort Implementation
-    @staticmethod
-    def bubble_sort(dataset, draw_data, speed, stop_flag):
+    def bubble_sort(self, dataset, draw_data, speed, stop_flag):
         # comparisons counter
-        comparisons = 0
+        self.set_comparisons_count(0)
         i = 0
         while i < len(dataset):
             j = 0
@@ -15,7 +23,8 @@ class SortingAlgorithms:
                 if stop_flag:
                     time.sleep(0.1)  # Sleep for a short duration to reduce CPU usage
                     continue  # Skip the current iteration and check stop_flag again
-                comparisons += 1
+                comparisons = self.get_comparisons_count() + 1
+                self.set_comparisons_count(comparisons)
                 if dataset[j] > dataset[j + 1]:
                     # swap elements
                     dataset[j], dataset[j + 1] = dataset[j + 1], dataset[j]
@@ -25,53 +34,51 @@ class SortingAlgorithms:
             i += 1
 
         draw_data(dataset, ['#019267' for i in range(len(dataset))])
-        return comparisons
 
     # Quick Sort Implementation
-    @staticmethod
-    def quick_sort(dataset, start, end, draw_data, speed):
+    def quick_sort(self, dataset, start, end, draw_data, speed):
         comparisons = 0  # Counter for comparisons
+        self.set_comparisons_count(0)
         if start < end:
-            pi, comparisons = SortingAlgorithms.partition(dataset, start, end, draw_data, speed, comparisons)
-            left_comparisons = SortingAlgorithms.quick_sort(dataset, start, pi - 1, draw_data, speed)
-            right_comparisons = SortingAlgorithms.quick_sort(dataset, pi + 1, end, draw_data, speed)
+            pi, comparisons = self.partition(dataset, start, end, draw_data, speed, comparisons)
+            left_comparisons = self.quick_sort(dataset, start, pi - 1, draw_data, speed)
+            right_comparisons = self.quick_sort(dataset, pi + 1, end, draw_data, speed)
             comparisons += left_comparisons + right_comparisons
+            self.set_comparisons_count(comparisons)
+        return self.get_comparisons_count()
 
-        return comparisons
-
-    @staticmethod
-    def partition(dataset, start, end, draw_data, speed, comparisons):
+    def partition(self, dataset, start, end, draw_data, speed, comparisons):
         pivot = dataset[end]
 
-        draw_data(dataset, SortingAlgorithms.get_colors(len(dataset), start, end, start, start))
+        draw_data(dataset, self.get_colors(len(dataset), start, end, start, start))
         time.sleep(speed)
 
         for i in range(start, end):
             comparisons += 1  # Increment the counter
+            self.set_comparisons_count(comparisons + self.get_comparisons_count())
 
             if dataset[i] < pivot:
-                draw_data(dataset, SortingAlgorithms.get_colors(len(dataset), start, end, start, i, True))
+                draw_data(dataset, self.get_colors(len(dataset), start, end, start, i, True))
                 time.sleep(speed)
 
                 dataset[i], dataset[start] = dataset[start], dataset[i]
                 start += 1
-            draw_data(dataset, SortingAlgorithms.get_colors(len(dataset), start, end, start, i))
+            draw_data(dataset, self.get_colors(len(dataset), start, end, start, i))
             time.sleep(speed)
 
-        draw_data(dataset, SortingAlgorithms.get_colors(len(dataset), start, end, start, end, True))
+        draw_data(dataset, self.get_colors(len(dataset), start, end, start, end, True))
         time.sleep(speed)
         dataset[end], dataset[start] = dataset[start], dataset[end]
 
-        return start, comparisons
+        return start, self.get_comparisons_count()
 
-    @staticmethod
-    def get_colors(n, start, end, s, ci, is_swap=False):
+    def get_colors(self, n, start, end, s, ci, is_swap=False):
         colors = []
         for i in range(n):
             if start <= i <= end:
                 colors.append('gray')
             else:
-                colors.append('white')
+                colors.append('orange')
             if i == end:
                 colors[i] = 'blue'
             elif i == s:
@@ -84,13 +91,13 @@ class SortingAlgorithms:
         return colors
 
     # Selection Sort Implementation
-    @staticmethod
-    def selection_sort(dataset, draw_data, speed):
-        comparisons = 0  # Counter for comparisons
+    def selection_sort(self, dataset, draw_data, speed):
+        self.set_comparisons_count(0)
         for i in range(len(dataset)):
             mini = i
             for j in range(i + 1, len(dataset)):
-                comparisons += 1  # Increment the counter
+                comparisons = self.get_comparisons_count() + 1  # Increment the counter
+                self.set_comparisons_count(comparisons)
                 if dataset[mini] > dataset[j]:
                     mini = j
                     draw_data(dataset, ['blue' if c == mini or c == i else 'red' for c in range(len(dataset))])
@@ -99,30 +106,21 @@ class SortingAlgorithms:
             draw_data(dataset, ['green' if c == i or c == mini else 'red' for c in range(len(dataset))])
             time.sleep(speed)
         draw_data(dataset, ['green' for i in range(len(dataset))])
-        return comparisons
 
     # Merge Sort Implementation
-    @staticmethod
-    def merge_sort(dataset, draw_data, speed):
-        SortingAlgorithms.merge_sort_(dataset, 0, len(dataset) - 1, draw_data, speed)
-        # comparisons = SortingAlgorithms.merge_sort_(dataset, 0, len(dataset) - 1, draw_data, speed)
-        # return comparisons
+    def merge_sort(self, dataset, draw_data, speed):
+        self.set_comparisons_count(0)
+        self.merge_sort_(dataset, 0, len(dataset) - 1, draw_data, speed)
 
-    @staticmethod
-    def merge_sort_(dataset, left, right, draw_data, speed):
-        comparisons = 0
+    def merge_sort_(self, dataset, left, right, draw_data, speed):
         if left < right:
             mid = (left + right) // 2
-            SortingAlgorithms.merge_sort_(dataset, left, mid, draw_data, speed)
-            SortingAlgorithms.merge_sort_(dataset, mid + 1, right, draw_data, speed)
-            SortingAlgorithms.merge(dataset, left, mid, right, draw_data, speed)
-            # comparisons += SortingAlgorithms.merge(dataset, left, mid, right, draw_data, speed)
-        # return comparisons
+            self.merge_sort_(dataset, left, mid, draw_data, speed)
+            self.merge_sort_(dataset, mid + 1, right, draw_data, speed)
+            self.merge(dataset, left, mid, right, draw_data, speed)
 
-    @staticmethod
-    def merge(dataset, left, mid, right, draw_data, speed):
-        comparisons = 0
-        draw_data(dataset, SortingAlgorithms.color_arr(len(dataset), left, mid, right))
+    def merge(self, dataset, left, mid, right, draw_data, speed):
+        draw_data(dataset, self.color_arr(len(dataset), left, mid, right))
         time.sleep(speed)
         left_data = dataset[left:mid + 1]
         right_data = dataset[mid + 1:right + 1]
@@ -130,7 +128,8 @@ class SortingAlgorithms:
         li = ri = 0
         for i in range(left, right + 1):
             if li < len(left_data) and ri < len(right_data):
-                comparisons += 1
+                comparisons = self.get_comparisons_count() + 1
+                self.set_comparisons_count(comparisons)
                 if left_data[li] <= right_data[ri]:
                     dataset[i] = left_data[li]
                     li += 1
@@ -144,12 +143,10 @@ class SortingAlgorithms:
                 dataset[i] = right_data[ri]
                 ri += 1
 
-        draw_data(dataset, ['green' if left <= c <= right else 'white' for c in range(len(dataset))])
+        draw_data(dataset, ['green' if left <= c <= right else 'silver' for c in range(len(dataset))])
         time.sleep(speed)
-        # return comparisons
 
-    @staticmethod
-    def color_arr(n, left, mid, right):
+    def color_arr(self, n, left, mid, right):
         colors = []
         for i in range(n):
             if left <= i <= right:
@@ -158,26 +155,25 @@ class SortingAlgorithms:
                 else:
                     colors.append('blue')
             else:
-                colors.append('white')
+                colors.append('silver')
 
         return colors
 
     # Insertion Sort Implementation
-    @staticmethod
-    def insertion_sort(dataset, draw_data, speed):
-        comparisons = 0  # Counter for comparisons
+    def insertion_sort(self, dataset, draw_data, speed):
+        self.set_comparisons_count(0)
         for i in range(1, len(dataset)):
             key = dataset[i]
             j = i - 1
             while j >= 0 and dataset[j] > key:
                 dataset[j + 1] = dataset[j]
                 j -= 1
-                draw_data(dataset, ['green' if x == j + 1 else 'white' for x in range(len(dataset))])
+                draw_data(dataset, ['green' if x == j + 1 else 'red' for x in range(len(dataset))])
                 time.sleep(speed)
-                comparisons += 1  # Increment the counter
+                comparisons = self.get_comparisons_count() + 1  # Increment the counter
+                self.set_comparisons_count(comparisons)
             dataset[j + 1] = key
-            draw_data(dataset, ['green' if x == j + 1 else 'white' for x in range(len(dataset))])
+            draw_data(dataset, ['green' if x == j + 1 else 'red' for x in range(len(dataset))])
             time.sleep(speed)
-        draw_data(dataset, ['green' for x in range(len(dataset))])
 
-        return comparisons
+        draw_data(dataset, ['green' for x in range(len(dataset))])

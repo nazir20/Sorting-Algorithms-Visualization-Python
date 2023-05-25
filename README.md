@@ -1,6 +1,5 @@
 # Sorting Algorithms Visualization Python
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg)](https://www.python.org)
 [![Pygame](https://img.shields.io/badge/Pygame-2.0.1-blue.svg)](https://www.pygame.org)
 

@@ -1,12 +1,14 @@
 # Sorting Algorithms Visualization Python
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg)](https://www.python.org)
 [![Pygame](https://img.shields.io/badge/Pygame-2.0.1-blue.svg)](https://www.pygame.org)
 
 A visualization tool for various sorting algorithms implemented in Python. See how different sorting algorithms work and how they perform on different datasets.
 
-Sorting Algorithms Visualization Python Demo: demo.gif
+## Demo:
+
+![Demo Gif](_Captures/gif.gif)
+
 
 ## Features
 
@@ -32,13 +34,14 @@ Sorting Algorithms Visualization Python Demo: demo.gif
 4. Use the user interface to select a sorting algorithm, dataset, and adjust the visualization settings.
 5. Start the visualization and observe the sorting algorithm in action.
 
-## Screenshots:
-
-Screenshot 1: screenshot1.png
-Screenshot 2: screenshot2.png
-
 ## Authors:
 
 - Nazir (@nazir20)
 - Judy (@judy-nkwama)
 - Asli (@asliBozkurt)
+
+## Screenshots:
+
+![Demo Gif](_Captures/Screenshot1.png)
+![Demo Gif](_Captures/Screenshot2.png)
+![Demo Gif](_Captures/Screenshot3.png)

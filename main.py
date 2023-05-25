@@ -16,7 +16,6 @@ sorting_algorithm = StringVar()
 graph_type = StringVar()
 sorting_alg = SortingAlgorithms()
 
-
 # Buttons
 def start_btn():
 

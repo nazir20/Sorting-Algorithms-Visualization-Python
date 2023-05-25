@@ -10,12 +10,12 @@ Sorting Algorithms Visualization Python Demo: demo.gif
 
 ## Features
 
-- Visualize popular sorting algorithms, including Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, and more.
-- Choose from various pre-defined datasets, including random, sorted, reversed, and nearly sorted data.
-- Adjust the speed of the visualization to observe the sorting process in real-time or faster.
-- Step through the sorting process one step at a time or let it run continuously.
-- Pause, resume, and reset the visualization as needed.
-- Interactive user interface to control the visualization.
+- 🎯 Visualize popular sorting algorithms, including Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort, and more.
+- 📊 Choose from various pre-defined datasets, including random, sorted, reversed, and nearly sorted data.
+- ⏱️ Adjust the speed of the visualization to observe the sorting process in real-time or faster.
+- ⏯️ Step through the sorting process one step at a time or let it run continuously.
+- ⏸️ Pause, resume, and reset the visualization as needed.
+- 🖥️ Interactive user interface to control the visualization.
 
 ## Prerequisites
 

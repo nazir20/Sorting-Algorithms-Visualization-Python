@@ -42,4 +42,3 @@ Screenshot 2: screenshot2.png
 - Nazir (@nazir20)
 - Judy (@judy-nkwama)
 - Asli (@asliBozkurt)
-

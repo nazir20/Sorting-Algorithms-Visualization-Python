@@ -1,7 +1,7 @@
 # Sorting Algorithms Visualization Python
 
-[![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg)](https://www.python.org)
-[![Pygame](https://img.shields.io/badge/Pygame-2.0.1-blue.svg)](https://www.pygame.org)
+[![Python](https://img.shields.io/badge/Python-3.11.3-blue.svg)](https://www.python.org)
+[![Tkinter](https://img.shields.io/badge/Tkinter-8.6-brightgreen)](https://docs.python.org/3/library/tkinter.html)
 
 A visualization tool for various sorting algorithms implemented in Python. See how different sorting algorithms work and how they perform on different datasets.
 
@@ -21,14 +21,14 @@ A visualization tool for various sorting algorithms implemented in Python. See h
 
 ## Prerequisites
 
-- Python 3.7 or higher
-- Pygame library (https://www.pygame.org)
+- Python 3.10+ or higher
+- Tkinter library (https://docs.python.org/3/library/tkinter.html)
 
 ## Getting Started:
 
 1. Clone this repository to your local machine.
 2. Install the required dependencies by running the following command:
-   `pip install pygame`
+   `pip install tkinter`
 3. Run the program by executing the following command:
    `python main.py`
 4. Use the user interface to select a sorting algorithm, dataset, and adjust the visualization settings.
@@ -36,12 +36,12 @@ A visualization tool for various sorting algorithms implemented in Python. See h
 
 ## Authors:
 
-- Nazir (@nazir20)
-- Judy (@judy-nkwama)
-- Asli (@asliBozkurt)
+- Nazir Sharifi(@nazir20)
+- Judy Nkwama(@judy-nkwama)
+- Aslı Bozkurt(@asliBozkurt)
 
 ## Screenshots:
 
-![Demo Gif](_Captures/Screenshot1.png)
-![Demo Gif](_Captures/Screenshot2.png)
-![Demo Gif](_Captures/Screenshot3.png)
+![Demo Gif](_Captures/sc1.png)
+![Demo Gif](_Captures/sc2.png)
+![Demo Gif](_Captures/sc3.png)

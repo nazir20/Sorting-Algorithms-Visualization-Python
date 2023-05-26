@@ -4,7 +4,6 @@ import tkinter.ttk
 from sorting_algorithms import *
 import random
 
-# This code creates a chart using the Tkinter library. First, root creation, which is a Tk creation. This object represents a window that will serve as the main window.
 root = Tk()
 root.title('Sorting Algorithms Visualization')
 root.geometry('900x600')
@@ -16,6 +15,7 @@ stop_flag = False
 sorting_algorithm = StringVar()
 graph_type = StringVar()
 sorting_alg = SortingAlgorithms()
+
 
 # Buttons
 def start_btn():
